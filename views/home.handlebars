@@ -1,0 +1,169 @@
+<div>
+    <h1 class="title">Escolha o Serviço</h1>
+</div>
+
+
+<!-- Modal de Login -->
+<div id="loginModal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <h2>Faça seu login</h2>
+
+
+        <form action="/login" method="POST">
+            <div class="input-group">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn">Entrar</button>
+        </form>
+        {{#if loginError}}
+        <p class="error-message">{{loginError}}</p>
+        {{/if}}
+        <p>Não tem uma conta? <a href="#" id="registerLink" class="link">Cadastre-se aqui</a></p>
+    </div>
+</div>
+
+<!-- Modal de cadastro -->
+<div id="registerModal" class="modal" style="display:none;">
+    <div class="modal-content">
+        <h2>Cadastre-se</h2>
+        <form action="/add-user" method="POST">
+            <div class="input-group">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" required>
+
+                <label for="telephone">Telefone:</label>
+                <input type="tel" id="telephone" name="telephone" required>
+
+
+            </div>
+            <button type="submit" class="btn">Cadastrar</button>
+        </form>
+        <p>Já tem uma conta? <a href="#" id="loginLink">Faça login aqui</a></p>
+    </div>
+</div>
+
+<Script>
+    var showLoginModal = {{ showLoginModal }};
+
+    if (showLoginModal) {
+        var modal = document.getElementById("loginModal");
+        modal.style.display = "flex";
+    }
+</Script>
+
+<div class="card-container">
+    <div class="card">
+        <div class="card-image"><img src="/image/corte.jpg" alt=""></div>
+        <div class="card-content">
+            <a class="card-button service" data-service-id="1">Corte <br>
+                <div class="value">$25</div>
+            </a>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-image"><img src="/image/barba.jpg" alt=""></div>
+        <div class="card-content">
+            <a class="card-button service" data-service-id="2">Barba
+                <div class="value">$10</div>
+            </a>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-image"><img src="/image/sobrancelha.jpg" alt=""></div>
+        <div class="card-content">
+            <a class="card-button service" data-service-id="3">Sobrancelha
+                <div class="value">$5</div>
+            </a>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-image"><img src="/image/corte_e_barba.avif" alt=""></div>
+        <div class="card-content">
+            <a class="card-button service" data-service-id="4">Corte e barba
+                <div class="value">$35</div>
+            </a>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-image"><img src="/image/corte_completo.jpg" alt=""></div>
+        <div class="card-content">
+            <a class="card-button service" data-service-id="5">Corte Completo
+                <div class="value">$50</div>
+            </a>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-image"><img src="/image/luzes.jpg" alt=""></div>
+        <div class="card-content">
+            <a class="card-button service" data-service-id="6">Luzes
+                <div class="value">$55</div>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<div class="professional">
+    <h1 class="title">Profissionais</h1>
+    <div class="card-container">
+        <div class="card">
+            <div class="card-image"><img src="/image/profissional_joao.jpg" alt=""></div>
+            <div class="card-content">
+                <a class="card-button professional_bottom" data-professional-id="1"></a>
+                <div class="card-button">João Silva</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-image"><img src="/image/profissional_maria.webp" alt=""></div>
+            <div class="card-content">
+                <a class="card-button  professional_bottom" data-professional-id="2"></a>
+                <div class="card-button">Maria Oliveira</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-image"><img src="/image/profissional_carlos.jpg" alt=""></div>
+            <div class="card-content">
+                <a class="card-button professional_bottom" data-professional-id="3"></a>
+                <div class="card-button">Carlos Souza</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-image"><img src="/image/mandrako.webp" alt=""></div>
+            <div class="card-content">
+                <a class="card-button professional_bottom" data-professional-id="4"></a>
+                <div class="card-button">Luiz Gonzaga</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="date">
+    <div class="schedule-section">
+        <h2 class="title">Horários Disponíveis</h2>
+        <input type="date" id="datePicker" class="" min="">
+
+        <div id="horariosContainer"></div>
+        <section id="schedule-section">
+            <div id="schedule-content"></div>
+        </section>
+    </div>
+</div>
+<div class="confirm">
+    <button id="confirm_schedule" class="confirm-button">confirmar reserva</button>
+</div>
+
+
+
+
+<script src="/script/schedule.js"></script>
+<script src="/script/display.js"></script>
+<script src="/script/modal.js"></script>

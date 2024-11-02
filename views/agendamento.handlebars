@@ -1,0 +1,83 @@
+<!-- Filtros -->
+<label for="daySelect">Escolher dia do mês:</label>
+<select id="daySelect">
+    <option value="">Dia Atual</option>
+    <!-- Adiciona opções para os dias do mês (1 a 31) -->
+    {{#each (range 1 31)}}
+    <option value="{{this}}">{{this}}</option>
+    {{/each}}
+</select>
+
+<label for="professionalSelect">Escolher profissional:</label>
+<select id="professionalSelect">
+    <option value="">Todos os profissionais</option>
+    <!-- Aqui você pode adicionar opções dinamicamente ou manualmente -->
+    <option value="João Silva">João Silva</option>
+    <option value="Carlos Souza">Carlos Souza</option>
+    <option value="Maria Oliveira">Maria Oliveira</option>
+    <option value="Luiz Gonzaga">Luiz Gonzaga</option>
+</select>
+
+<button id="filterButton">Aplicar Filtros</button>
+
+<style>
+    /* Estilos da tabela e da página */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #f4f4f4;
+    }
+
+    /* Estilos do modal */
+    #userInfoModal {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 20px;
+        border: 1px solid #ddd;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #closeModal {
+        margin-top: 10px;
+    }
+</style>
+
+<h1>Agendamentos do Dia Atual</h1>
+<table id="appointmentsTable">
+    <thead>
+        <tr>
+            <th>Nome do Usuário</th>
+            <th>Data</th>
+            <th>Hora</th>
+            <th>Serviço</th>
+            <th>Profissional</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Os dados serão inseridos aqui pelo JavaScript -->
+    </tbody>
+</table>
+
+<!-- Modal para exibir informações do usuário -->
+<div id="userInfoModal">
+    <div>
+        <h2>Informações do Usuário</h2>
+        <p id="userDetails"></p>
+        <button id="closeModal">Fechar</button>
+    </div>
+</div>
+
+
+<script src="/script/filter.js"></script>
